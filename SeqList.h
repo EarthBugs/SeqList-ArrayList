@@ -8,7 +8,7 @@ private:
 	int data[MaxSize];
 	int length;//线性表长度
 public:
-	SeqList() { length = 0; }//无参构造函数
+	SeqList() { length = 0; }//无参构造函数，构造长度为零的顺序表
 	SeqList(int source[], int length);//有参构造函数，参数为源数组以及源数组取样长度
 	void Insert(int index,int value);//插入函数，参数为插入位置和插入值
 	int Delete(int index);//删除函数，参数为待删除元素的下标，返回值为被删除元素值
