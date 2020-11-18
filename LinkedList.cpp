@@ -45,14 +45,15 @@ void LinkedList::Insert(int index, int value)
 {
 	Node* ptr = first;
 	int counter = 0;
-	//遍历链表，找到第index个节点
+	//遍历链表，找到第index个结点
 	while (ptr != nullptr && counter < index)
 	{
 		ptr = ptr->next;
 		counter++;
 	}
-	if (ptr == nullptr)throw "插入位置非法！";
-	//插入指定值
+	if (ptr == nullptr)
+		cout << "		插入位置非法！" << endl;
+	//插入指定值结点
 	else
 	{
 		Node* temp = new Node;
@@ -67,16 +68,65 @@ int LinkedList::Delete(int index)
 {
 	Node* ptr = first;
 	int counter = 0;
-	//遍历链表，找到第index个节点
+	//遍历链表，找到第index个结点
 	while (ptr != nullptr && counter < index)
 	{
 		ptr = ptr->next;
 		counter++;
 	}
-	if (ptr == nullptr)throw "删除位置非法！";
-	//插入指定值
+	if (ptr == nullptr)
+		cout << "		删除位置非法！" << endl;
+	//删除指定值结点
 	else
 	{
 		Node* temp = ptr->next;
+		int value_temp = temp->data;
+		ptr->next = temp->next;
+		delete temp;
+		return value_temp;
 	}
+}
+
+//搜索函数，参数为待搜索元素的值，返回值为该元素的位置(从零计数)(若未能搜索到该值则返回-1)
+int LinkedList::Locate(int value)
+{
+	Node* ptr = first;
+	int counter = 0;
+	//遍历链表，找到值为value的结点
+	while (ptr != nullptr)
+	{
+		if (ptr->data == value) return counter;
+		ptr = ptr->next;
+		counter++;
+	}
+	return -1;
+}
+
+//长度函数，返回值为该表长度
+int LinkedList::GetLength()
+{
+	Node* ptr = first;
+	int counter = 0;
+	//当ptr不为空指针时遍历链表，每次循环计数器自加
+	while (ptr != nullptr)
+	{
+		ptr = ptr->next;
+		counter++;
+	}
+	return counter;
+}
+
+//打印链表的内容
+void LinkedList::PrintList()
+{
+	Node* ptr = first->next;
+	cout << "[";
+	//当ptr不为空指针时遍历链表，输出其内容
+	while (ptr != nullptr)
+	{
+		cout << ptr->data;
+		if (ptr->next != nullptr)cout << ", ";
+		ptr = ptr->next;
+	}
+	cout << "]";
 }

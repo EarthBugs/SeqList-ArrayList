@@ -1,4 +1,5 @@
 #pragma once
+#include "List.h"
 
 struct Node
 {
@@ -6,7 +7,7 @@ struct Node
 	Node* next;
 };
 
-class LinkedList
+class LinkedList: public List
 {
 private:
 	Node* first;//Í·½áµã
