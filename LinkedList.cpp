@@ -68,7 +68,7 @@ int LinkedList::Delete(int index)
 {
 	Node* ptr = first;
 	int counter = 0;
-	//遍历链表，找到第index个结点
+	//遍历链表，找到第index-1个结点
 	while (ptr != nullptr && counter < index)
 	{
 		ptr = ptr->next;

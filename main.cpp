@@ -7,7 +7,7 @@ int main()
 {
 	List* list = nullptr;
 
-	//循环执行以下do-while部分，除非用户推出程序
+	//循环执行以下do-while部分，除非用户退出程序
 	bool exit_flag = 0;
 	do
 	{
